@@ -21,7 +21,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     this.context = context;
-    return SafeArea(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.pink[100],
+        title: Text("Steffi's API", style: TextStyle(fontWeight: FontWeight.w500, color: Colors.black),),
+      ),
+      body: SafeArea(
       child: FutureBuilder(
         future: apiService.getProfiles(),
         builder: (BuildContext context, AsyncSnapshot<List<Profile>> snapshot) {
@@ -40,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
           }
         },
       ),
-    );
+    ));
   }
 
   Widget _buildListView(List<Profile> profiles) {
